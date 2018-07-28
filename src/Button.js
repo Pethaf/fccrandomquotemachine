@@ -9,15 +9,14 @@ const Button = ({text, action, styling, id}) => {
 
 export default Button; 
 
-Button.PropTypes = {
+Button.propTypes = {
     text: PropTypes.string.isRequired,
     action: PropTypes.func.isRequired,
     styling: PropTypes.object.isRequired
 }
 
 Button.defaultProps = {
-    style: {},
+    styling: {},
     action: () => {alert("Button click")},
-    style: {},
     text: "Button placeholder text"
 }

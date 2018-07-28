@@ -13,7 +13,7 @@ const Textdisplay = ({content,styling, id}) =>
 
 export default Textdisplay;
 
-Textdisplay.PropTypes = {
+Textdisplay.propTypes = {
     id: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     styling: PropTypes.object.isRequired,

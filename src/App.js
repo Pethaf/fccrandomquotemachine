@@ -7,21 +7,49 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state= {
-      theQuote: ""
+      theQuote: "",
+      author: "",
+      loading: true,
+      quoteUrl: "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1",
     }
   }
 
+  componentDidMount(){
+    fetch(this.state.quoteUrl)
+    .then(resp => resp.json())
+    .then(data => 
+      {
+        let tmp = new DOMParser().parseFromString(data[0].content, "text/html")
+        this.setState({ 
+          theQuote: tmp.body.textContent,
+          author: data[0].title,
+          loading: false
+        })
+      }
+    )
+  }
+
   render() {
-    return (
-      <div id="quote-box">
-          <Textdisplay content = "Very impressive and philosophical quote" 
-                       id="text" styling={{"gridColumn": "1/5"}}/>
-          <Textdisplay content = "Authored by:" id="author" 
-                       styling={{"gridColumn": "3/5"}}/>
-          <Button text="Retweet this" id="tweet-quote" styling={{"gridColumn":"1/2", "alignSelf":"center", "justifySelf":"start" }} />
-          <Button text="Get new quote" id="new-quote" styling={{"gridColumn":"4/5", "alignSelf":"center", "justifySelf":"end"}} />
-      </div>
-    );
+    if(this.state.loading){
+      return (
+        <div className="loading">
+        </div>
+      )
+    }
+    else {
+      return (
+        <div id="quote-box">
+            <Textdisplay content ={this.state.theQuote}
+                         id="text"/>
+            <Textdisplay content = {`Authored by: ${this.state.author}`} id="author" />
+            <div className="container" style={{"display":"flex",
+                                              justifyContent:"space-between"}}>
+            <Button text="Retweet this" id="tweet-quote" />
+            <Button text="Get new quote" id="new-quote" />
+            </div>
+       </div>
+      );
+    }
   }
 }
 
