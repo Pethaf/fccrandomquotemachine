@@ -10,15 +10,16 @@ class App extends Component {
       theQuote: ""
     }
   }
-  
+
   render() {
     return (
       <div id="quote-box">
-          <Textdisplay content = "Very impressive and philosophical quote" id="text"/>
-          <Textdisplay content = "Authored by:" id="author"/>
-          <Button />
-          <Button />
-          <Button id="new-quote"/>
+          <Textdisplay content = "Very impressive and philosophical quote" 
+                       id="text" styling={{"gridColumn": "1/5"}}/>
+          <Textdisplay content = "Authored by:" id="author" 
+                       styling={{"gridColumn": "3/5"}}/>
+          <Button text="Retweet this" id="tweet-quote" styling={{"gridColumn":"1/2", "alignSelf":"center", "justifySelf":"start" }} />
+          <Button text="Get new quote" id="new-quote" styling={{"gridColumn":"4/5", "alignSelf":"center", "justifySelf":"end"}} />
       </div>
     );
   }

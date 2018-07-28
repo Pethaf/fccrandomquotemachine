@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Button = ({text, action, styling}) => {
+const Button = ({text, action, styling, id}) => {
     return (
-        <button onClick = {action} style={styling}>{text}</button>
+        <button onClick = {action} style={styling} id={id}>{text}</button>
     )
 }
 

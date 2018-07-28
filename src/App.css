@@ -5,15 +5,18 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   
 }
 
-.quote-box {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+#quote-box {
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
   width: 400px;
-  height: auto;
+  height: 350px;
   margin: 0 auto;
-  flex-wrap: nowrap;
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: space-between;
 }
