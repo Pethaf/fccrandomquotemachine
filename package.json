@@ -4,12 +4,19 @@
   "private": true,
   "homepage": "http://pethaf.github.io/fccrandomquotemachine",
   "dependencies": {
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
+    "@fortawesome/react-fontawesome": "0.1.0-11",
+    "i": "^0.3.6",
+    "npm": "^6.3.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-fontawesome": "^1.6.1",
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HTTPS=true && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "predeploy": "npm run build",
@@ -17,6 +24,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.2.0",
     "gh-pages": "^1.2.0"
   }
 }
